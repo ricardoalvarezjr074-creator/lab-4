@@ -15,12 +15,35 @@ void enterArrrayData(double* array, int size)
 }
 
 // function to display the values
-void displayArrayData(double* array, int size)
+void outputArrayData(double* array, int size)
 {
     cout <<"Outputting array elements: ";
     for (int i = 0; i < size; i++)
     {
-        count << *(array + i) << " ";
+        cout << *(array + i) << " ";
     }
     cout << endl;
+}
+
+// function to calculate the sum
+double sumArray(double* array, int size)
+{
+    double sum = 0;
+    for (int i = 0; i < size; i++)
+    {
+        sum += *(array + i);
+    }
+    return sum;
+}
+
+int main()
+{
+    const int SIZE = 5;
+    double* numbers = new double[SIZE];
+    enterArrrayData(numbers, SIZE);
+    outputArrayData(numbers, SIZE);
+    cout << "Sum of values:" << sumArray(numbers, SIZE) << endl;
+
+    delete[] numbers;
+    return 0;
 }
